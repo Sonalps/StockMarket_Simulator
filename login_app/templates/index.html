@@ -1,0 +1,158 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+    <script src="{{ url_for('static', filename='js/stock.js') }}" defer></script>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        .navbar-left h1, .navbar-left h1 a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .navbar-right input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .profile-icon {
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .line {
+            border: 1px solid #fff;
+        }
+        .content-container {
+            display: flex;
+            margin-top: 20px;
+        }
+        .left-column {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .content-box, .content-box1 {
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .content-box1 {
+            flex: 2;
+        }
+        .trades-strip {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.trade-item {
+    color: #90ee90;
+    margin-bottom: 10px;
+}
+
+.recent-trades ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-trades li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.recent-trades button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <h1><a href="{{ url_for('portfolio') }}">PORTFOLIO</a></h1>
+            <h1><a href="{{ url_for('trade') }}">TRADE</a></h1>
+            <h1><a href="{{ url_for('news') }}">NEWS</a></h1>
+            <h1><a href="{{ url_for('learn') }}">LEARN</a></h1>
+            <h1><a href="{{ url_for('contact') }}">CONTACT US</a></h1>
+        </div>
+        <div class="navbar-right">
+            <input type="text" placeholder="Search...">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="profile-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+        </div>
+    </nav>
+    <hr class="line">
+    <div class="content-container">
+        <div class="left-column">
+            <div class="content-box">
+                <div id="portfolio-value">
+                    <p>Account Value: <span id="account-value">Rs. {{ account_value }}</span></p>
+                    <p>Today's Change: <span id="todays-change">Rs. {{ todays_change }}</span></p>
+                </div>
+            </div>
+            <div class="content-box">
+                <div id="portfolio-value">
+                    <p>Annual Return: <span id="annual-return">{{ annual_return }}%</span></p>
+                    <p>Buying Power: <span id="buying-power">Rs. {{ buying_power }}</span></p>
+                    <p>Cash: <span id="cash">Rs. {{ cash }}</span></p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="content-box1">
+    
+            <form id="stock-form">
+                <input type="text" id="stock-symbol-input" placeholder="Enter Stock Symbol (e.g., AAPL)" required>
+                <button type="submit">Search</button>
+            </form>
+            <p id="error-message" class="error" style="color: red;"></p>
+            <div id="stock-info"></div>
+            <canvas id="stock-chart"></canvas>
+        </div>
+        
+    </div>
+    <div class="recent-trades">
+        <h2>Recent Trades</h2>
+        <ul id="recent-trades-list">
+            
+        </ul>
+    </div>
+     <!-- Support button -->
+     <button class="support-button" onclick="openStreamlitApp()">Support</button>
+
+     <script>
+         // Function to open Streamlit app in a new tab
+         function openStreamlitApp() {
+             window.open('http://localhost:8501', '_blank'); // Adjust the URL and port as needed
+         }
+     </script>
+</body>
+</html> 

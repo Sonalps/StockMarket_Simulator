@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/news.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='js/news.js') }}" defer></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('news') }}">News</a></li>
+            <!-- Add other tabs here -->
+        </ul>
+    </nav>
+    <div class="news-container">
+        <h2>LATEST NEWS</h2>
+        <p class="error-message" style="display: none;"></p>
+        <div class="news-list"></div>
+    </div>
+</body>
+</html>

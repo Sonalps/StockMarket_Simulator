@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/global.css') }}">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+</head>
+<body>
+    <div class="limiter">
+        <div class="container-login">
+            <div class="wrap-login">
+                <div class="login-pic">
+                    <img src="{{ url_for('static', filename='images/login-icon-png-27.png') }}" alt="IMG">
+                </div>
+                <form class="login-form" method="POST" action="{{ url_for('login') }}">
+                    <span class="login-form-title">
+                        Login
+                    </span>
+                    <div class="wrap-input">
+                        <input class="input" type="text" name="email" id="username" placeholder="Email" required>
+                        <span class="focus-input"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                
+                    <div class="wrap-input">
+                        <input class="input" type="password" name="pass" id="password" placeholder="Password" required>
+                        <span class="focus-input"></span>
+                        <span class="symbol-input100">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="container-login-form-btn">
+                        <button class="login-form-btn">
+                            Login
+                        </button>
+                    </div>
+                    <p>{{ msg }}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

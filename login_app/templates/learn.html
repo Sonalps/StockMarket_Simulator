@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}
+</style>
+</head>
+<body>
+
+<video autoplay muted loop id="myVideo">
+  <source src="pinterest.mp4" type="video/mp4">
+  
+  Your browser does not support HTML5 video.
+</video>
+
+<div class="content">
+    <h1 style="color:black;"></h1>
+    <center><h1 style="font-family:Verdana, sans-serif;font-size:25px;"><h1 style="color:whitesmoke;">STOCK MARKET</h1></h1></center>
+    <h1 style="font-family:Verdana, sans-serif;font-size:13px;">
+        <br>
+        <br>
+    <p>A stock represents a share in the ownership of a company and constitutes a claim on part of the company's assets and earnings.
+        <br>
+        While the stock market is a collection of markets and exchanges where the buying, selling, and issuance of shares of publicly held companies take place.
+        <br>
+        <br>
+        How the Stock Market Works
+        <br>
+        Initial Public Offering (IPO): When a company decides to go public, it issues shares through an IPO. This allows the company to raise capital from public investors.
+        <br>
+        Trading: Investors can buy and sell stocks through exchanges or OTC markets. This is facilitated by brokers who act as intermediaries.
+        <br>
+        Prices: Stock prices fluctuate based on supply and demand, influenced by factors like company performance, economic data, and market sentiment.
+        <br>
+        Indexes: Stock market indexes, like the S&P 500 or the Dow Jones Industrial Average, track the performance of a group of stocks to give an overall view of the market's health.
+        <br>
+        <br>
+</body> 
+        Importance of the Stock Market:
+        <br>
+        Capital Formation: Companies raise funds for expansion, innovation, and growth.<br>
+        Wealth Creation: Provides opportunities for investors to grow their wealth through capital gains and dividends.<br>
+        Economic Indicator: Reflects the economic health and investor sentiment.<br>
+        Participants in the Stock Market.<br>
+        Individual Investors: Retail investors who buy and sell stocks for personal gain.<br>
+        Institutional Investors: Entities like mutual funds, pension funds, and insurance companies that trade large volumes of stocks.<br>
+        Brokers and Dealers: Intermediaries who facilitate the buying and selling of stocks.<br>
+        Market Makers: Firms that ensure liquidity by buying and selling stocks from their own accounts.<br>
+        <br>
+        <br>
+        Key Concepts and Strategies<br>
+        Bull and Bear Markets: A bull market is characterized by rising stock prices, while a bear market features declining prices.<br>
+        Diversification: Spreading investments across various assets to reduce risk.<br>
+        Portfolio: A collection of investments held by an individual or institution.<br>
+        Dividends: Payments made by a company to its shareholders, usually from profits.<br>
+        Earnings Per Share (EPS): A company's profit divided by the outstanding shares of its common stock.<br>
+        Price-to-Earnings (P/E) Ratio: A valuation metric comparing the current share price to its per-share earnings.<br>
+        <br>
+        <br></p>
+    </h1>
+  <button id="myBtn" onclick="myFunction()">Pause</button>
+</div>
+
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunction() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+</script>
+
+</body>
+</html>
